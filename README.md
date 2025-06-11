@@ -22,7 +22,7 @@ A minimalist ToDo web application built with **Flask**, **SQLAlchemy**, and conf
 
 ```bash
 git clone https://github.com/maudel28/todo.git
-cd flask-todo-app
+cd todo/
 ```
 
 2. **Create a virtual environment and install dependencies:**
