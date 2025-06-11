@@ -13,4 +13,10 @@ CREATE TABLE IF NOT EXISTS task (
 );
 EOF
 
-echo "SQLite database initialized."
+if [ $? -ne 0 ]; then
+  echo "Failed!"
+  exit 1
+else
+  echo "SQLite database initialized."
+  exit 0
+fi
