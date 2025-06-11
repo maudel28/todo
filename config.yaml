@@ -3,8 +3,8 @@ database_config_path: "/full/path/to/db-config.yaml"
 # Uncomment to apply custom style
 # style:
 #   background_color: "#1a1a1a"
-#   text_color: "#e0e0e0"
-#   button_color: "#2a750f"
+#   text_color: "#2a750f"
+#   button_color: "#4cc121"
 #   button_text_color: "#ffffff"
 #   completed_text_color: "#6c757d"
 
