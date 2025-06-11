@@ -1,0 +1,12 @@
+database_config_path: "/full/path/to/db-config.yaml"
+
+style:
+  background_color: "#ffffff"
+  text_color: "#000000"
+  button_color: "#007bff"
+  button_text_color: "#ffffff"
+  completed_text_color: "#888888"
+
+flask:
+  port: 8080
+  debug: false

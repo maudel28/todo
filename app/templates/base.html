@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask ToDo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: {{ style.background_color }};
+            color: {{ style.text_color }};
+        }
+        .btn {
+            background-color: {{ style.button_color }};
+            color: {{ style.button_text_color }};
+        }
+        .completed {
+            color: {{ style.completed_text_color }};
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

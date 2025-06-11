@@ -1,0 +1,18 @@
+engine: sqlite
+
+sqlite:
+  database: /full/path/to/todo.db
+
+mariadb:
+  user: root
+  password: mariadbpass
+  host: localhost
+  port: 3306
+  database: todo_db
+
+postgresql:
+  user: postgres
+  password: pgpass
+  host: localhost
+  port: 5432
+  database: todo_db

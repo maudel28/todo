@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+SQLAlchemy
+PyYAML
+PyMySQL
+psycopg2-binary

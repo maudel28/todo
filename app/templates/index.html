@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>ToDo List</h1>
+
+<form action="{{ url_for('add') }}" method="POST">
+    <input type="text" name="task_name" placeholder="New task..." required>
+    <button class="btn" type="submit">Add</button>
+</form>
+
+<h2>Pending</h2>
+<ul>
+    {% for task in pending %}
+    <li>
+        <input type="checkbox" onchange="location.href='{{ url_for('toggle', task_id=task.id) }}'" {% if task.completed %}checked{% endif %}>
+        <span class="{% if task.completed %}completed{% endif %}">{{ task.name }}</span>
+        {% if not task.locked %}
+        <a href="{{ url_for('delete', task_id=task.id) }}">🗑️</a>
+        {% else %}
+        🔒
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Completed</h2>
+<ul>
+    {% for task in completed %}
+    <li>
+        <input type="checkbox" onchange="location.href='{{ url_for('toggle', task_id=task.id) }}'" {% if task.completed %}checked{% endif %}>
+        <span class="completed">{{ task.name }}</span>
+        {% if not task.locked %}
+        <a href="{{ url_for('delete', task_id=task.id) }}">🗑️</a>
+        {% else %}
+        🔒
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
