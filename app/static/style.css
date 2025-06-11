@@ -1,38 +1,143 @@
+.background__circle {
+    position: absolute;
+    top: -300px;
+    right: -300px;
+    width: 700px;
+    height: 700px;
+    background-color: var(--button-color);
+    border-radius: 50%;
+    z-index: -1;
+}
+
 body {
-    font-family: sans-serif;
-    margin: 20px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-input[type="text"] {
-    padding: 8px;
-    width: 70%;
-}
-
-button.btn {
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 10px;
+.board {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.board__frame {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+.board__content {
+    padding: 30px;
+}
+
+.board__title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.board__form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.board__form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.board__button {
+    padding: 10px 20px;
+    background-color: var(--button-color);
+    border: none;
+    color: var(--button-text-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.board__button:hover {
+    filter: brightness(90%);
+}
+
+.board__subtitle {
+    font-size: 20px;
+    margin: 20px 0 10px;
+}
+
+.board__items {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
-a {
+.item {
+    background-color: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.item--done {
+    background-color: #e6e6e6;
+}
+
+.item__text {
+    flex: 1;
+    margin: 0;
+    font-size: 16px;
+}
+
+.item__text--done {
+    text-decoration: line-through;
+    color: var(--completed-text-color);
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--button-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.checkbox--checked {
+    background-color: var(--button-color);
+    position: relative;
+}
+
+.checkbox--checked::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--button-text-color);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.delete-btn {
+    font-size: 18px;
     text-decoration: none;
     color: red;
+    cursor: pointer;
+}
+
+.locked-icon {
     font-size: 18px;
+    color: #999;
 }

@@ -5,23 +5,42 @@
     <title>Flask ToDo</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
+        :root {
+            --bg-color: {{ style.background_color | default('#f0f2f5') }};
+            --text-color: {{ style.text_color | default('#000000') }};
+            --button-color: {{ style.button_color | default('#007bff') }};
+            --button-text-color: {{ style.button_text_color | default('#ffffff') }};
+            --completed-text-color: {{ style.completed_text_color | default('#888888') }};
+        }
+
         body {
-            background-color: {{ style.background_color }};
-            color: {{ style.text_color }};
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
-        .btn {
-            background-color: {{ style.button_color }};
-            color: {{ style.button_text_color }};
+
+        .board__button {
+            background-color: var(--button-color);
+            color: var(--button-text-color);
         }
-        .completed {
-            color: {{ style.completed_text_color }};
-            text-decoration: line-through;
+
+        .item__text--done {
+            color: var(--completed-text-color);
+        }
+
+        .checkbox {
+            border-color: var(--button-color);
+        }
+
+        .checkbox--checked {
+            background-color: var(--button-color);
+        }
+
+        .checkbox--checked::after {
+            border-color: var(--button-text-color);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
+    {% block content %}{% endblock %}
 </body>
 </html>

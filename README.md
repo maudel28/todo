@@ -96,7 +96,7 @@ Use one of the provided scripts inside `scripts/`:
 python run.py
 ```
 
-Visit `http://localhost:5000` in your browser.
+Visit `http://localhost:8080` in your browser.
 
 ---
 

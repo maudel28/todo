@@ -1,40 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>ToDo List</h1>
+<div class="background">
+  <div class="background__circle"></div>
+</div>
 
-<form action="{{ url_for('add') }}" method="POST">
-    <input type="text" name="task_name" placeholder="New task..." required>
-    <button class="btn" type="submit">Add</button>
-</form>
+<div class="board">
+  <div class="board__frame">
+    <div class="board__content">
+      <h2 class="board__title">ToDo App</h2>
 
-<h2>Pending</h2>
-<ul>
-    {% for task in pending %}
-    <li>
-        <input type="checkbox" onchange="location.href='{{ url_for('toggle', task_id=task.id) }}'" {% if task.completed %}checked{% endif %}>
-        <span class="{% if task.completed %}completed{% endif %}">{{ task.name }}</span>
-        {% if not task.locked %}
-        <a href="{{ url_for('delete', task_id=task.id) }}">🗑️</a>
-        {% else %}
-        🔒
-        {% endif %}
-    </li>
-    {% endfor %}
-</ul>
+      <form action="{{ url_for('add') }}" method="POST" class="board__form">
+        <input type="text" name="task_name" placeholder="What do you want to do?" required>
+        <button type="submit" class="board__button">Add</button>
+      </form>
 
-<h2>Completed</h2>
-<ul>
-    {% for task in completed %}
-    <li>
-        <input type="checkbox" onchange="location.href='{{ url_for('toggle', task_id=task.id) }}'" {% if task.completed %}checked{% endif %}>
-        <span class="completed">{{ task.name }}</span>
-        {% if not task.locked %}
-        <a href="{{ url_for('delete', task_id=task.id) }}">🗑️</a>
-        {% else %}
-        🔒
-        {% endif %}
-    </li>
-    {% endfor %}
-</ul>
+      <div class="board__items">
+        {% for task in pending %}
+        <div class="item">
+          <a href="{{ url_for('toggle', task_id=task.id) }}" class="checkbox"></a>
+          <p class="item__text">{{ task.name }}</p>
+          {% if not task.locked %}
+            <a href="{{ url_for('delete', task_id=task.id) }}" class="delete-btn" title="Delete">❌</a>
+          {% else %}
+            <span class="locked-icon" title="Locked task">🔒</span>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      <h3 class="board__subtitle">Completed</h3>
+      <div class="board__items">
+        {% for task in completed %}
+        <div class="item item--done">
+          <a href="{{ url_for('toggle', task_id=task.id) }}" class="checkbox checkbox--checked"></a>
+          <p class="item__text item__text--done">{{ task.name }}</p>
+          {% if not task.locked %}
+            <a href="{{ url_for('delete', task_id=task.id) }}" class="delete-btn" title="Delete">❌</a>
+          {% else %}
+            <span class="locked-icon" title="Locked task">🔒</span>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -11,6 +11,7 @@ def create_app():
     config = load_app_config()
     app.config['SQLALCHEMY_DATABASE_URI'] = config['SQLALCHEMY_DATABASE_URI']
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['style'] = config.get('style', {})
     
     db.init_app(app)
 
