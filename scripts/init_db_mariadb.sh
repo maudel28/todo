@@ -17,4 +17,10 @@ CREATE TABLE IF NOT EXISTS task (
 );
 EOF
 
-echo "MariaDB schema initialized."
+if [ $? -ne 0 ]; then
+  echo "Failed!"
+  exit 1
+else
+  echo "MariaDB schema initialized."
+  exit 0
+fi

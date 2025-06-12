@@ -19,4 +19,10 @@ CREATE TABLE IF NOT EXISTS task (
 );
 EOF
 
-echo "PostgreSQL schema initialized."
+if [ $? -ne 0 ]; then
+  echo "Failed!"
+  exit 1
+else
+  echo "PostgreSQL schema initialized."
+  exit 0
+fi
