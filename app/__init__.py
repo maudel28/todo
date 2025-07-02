@@ -15,9 +15,9 @@ def create_app():
     
     db.init_app(app)
 
-    with app.app_context():
-        from . import routes
-        from .models import Task
-        db.create_all()
+    # with app.app_context():
+    #     from . import routes
+    #     from .models import Task
+    #     db.create_all()
 
     return app
