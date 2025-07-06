@@ -2,7 +2,7 @@
 
 DB_FILE="./todo.db"
 
-echo "Creating SQLite database at $DB_FILE..."
+echo "Creating SQLite database at $(realpath $DB_FILE) ..."
 
 sqlite3 "$DB_FILE" <<EOF
 CREATE TABLE IF NOT EXISTS task (
