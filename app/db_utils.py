@@ -1,5 +1,10 @@
+engine_type = None
+
 def construct_db_uri(cfg):
-    engine = cfg.get("engine")
+    global engine_type
+    engine_type = cfg.get("engine")
+    engine = engine_type
+    #engine = cfg.get("engine")
 
     if engine == "sqlite":
         sqlite_cfg = cfg["sqlite"]
@@ -15,3 +20,6 @@ def construct_db_uri(cfg):
 
     else:
         raise ValueError(f"Unsupported engine: {engine}")
+
+def get_engine_type():
+    return engine_type
